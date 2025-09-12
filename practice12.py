@@ -1,5 +1,11 @@
+from rich.console import Console
+from rich.prompt import Prompt
+
+console = Console()
+
 def calculate_bmi(weight, height):
     bmi = weight / (height ** 2)
+
     return bmi
 
 
@@ -14,8 +20,9 @@ def bmi_status(bmi):
         return "Obese"
     
 
-weight = float(input("Og'irligingizni kiriting (kg): "))
-height = float(input("Bo'yingizni kiriting (metr): "))
+weight = float(Prompt.ask("[bold green]Og'irligingizni kiriting (kg)[/]"))
+height = float(Prompt.ask("[bold blue]Bo'yingizni kiriting (metr)[/]"))
+
 
 
 bmi = calculate_bmi(weight, height)
@@ -23,5 +30,5 @@ bmi = calculate_bmi(weight, height)
 status = bmi_status(bmi)
 
 
-print(f"BMI: {bmi}")
-print(f"Holat: {status}")
+console.print(f"BMI: {bmi}",style = "yellow")
+console.print(f"Holat: {status}",style = "blue")

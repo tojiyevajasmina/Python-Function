@@ -1,3 +1,9 @@
+from rich.console import Console
+from rich.prompt import Prompt
+
+console = Console()
+
+
 def add(a, b):
     return a + b
 
@@ -12,9 +18,9 @@ def divide(a, b):
 
 def main():
     while True:
-        num1 = int(input("1-son:"))
-        num2 = int(input("2-son:"))
-        ch = input("Amal:")
+        num1 = int(Prompt.ask ("[magenta] 1-son:"))
+        num2 = int(Prompt.ask("[magenta] 2-son:"))
+        ch = Prompt.ask("[cyan] Amal:")
 
         
         if ch == "+":
@@ -26,6 +32,6 @@ def main():
         elif ch == "/":
             result = divide(num1, num2)
 
-        print(result)
+        print(  result)
 
 main()

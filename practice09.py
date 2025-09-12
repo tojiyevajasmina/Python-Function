@@ -1,9 +1,15 @@
+from rich.console import Console
+from rich.prompt import Prompt
+
+console = Console()
+
+
 def show_menu():
-    print("-------Menu------")
-    print("1. BALANCE NI KO'RISH ")
-    print("2. PUL KIRITISH  ")
-    print("3. PUL YECHISH  ")
-    print("0. CHIQISH  ")
+    console.print("-------Menu------" , style = "bold red")
+    console.print("1. BALANCE NI KO'RISH ", style="italic bright_blue")
+    console.print("2. PUL KIRITISH  ",style="bold green")
+    console.print("3. PUL YECHISH  ",style="italic blue" )
+    console.print("0. CHIQISH  ",style="underline bright_green" )
 
 def deposit(balance, amount):
     if amount > 0:
@@ -17,7 +23,7 @@ def withdraw(balance, amount):
     return balance
 
 def chesk_balance(balance):
-    print(f"sizning balansingiz: {balance}")
+    console.print(f"sizning balansingiz: {balance}",style = "blue")
 
 def main():
     balance = 100.000
@@ -37,6 +43,6 @@ def main():
         elif op == "0":
             break
         else:
-            print("bunday menu yo'q")
+            console.print("bunday menu yo'q", style = "red")
 
 main()

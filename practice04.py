@@ -1,3 +1,8 @@
+from rich.console import Console
+from rich.prompt import Prompt
+
+concole = Console()
+
 
 def get_grade(score):
     grade = "" 
@@ -14,6 +19,7 @@ def get_grade(score):
 
     return grade
 
-ball = int(input("ball: "))
+ball = int(Prompt.ask("[bold italic magenta]Ball kiriting: [/]"))
+
 grade = get_grade(ball)
 print(grade)

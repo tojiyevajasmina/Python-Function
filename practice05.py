@@ -1,17 +1,25 @@
-def check_guess(secret, guess):
-    return secret == guess
+from rich.console import Console
+from rich.prompt import Prompt
 
-def print_result(is_correct):
-    if is_correct:
-        print("To'g'ri!")
-    else:
-        print("Xato!")
+console = Console()
 
 
 secret_number = 7
 
-user_guess = int(input("Sirli sonni toping (1 dan 10 gacha): "))
+def check_guess(secret, guess):
+    result=  secret == guess
+    return result
 
-# Tekshiramiz va natijani chiqaramiz
-result = check_guess(secret_number, user_guess)
-print(result)
+
+def print_result(is_correct):
+    if is_correct:
+        console.print("To'g'ri!", style = "green")
+    else:
+        console.print("Xato!" ,style = "red" )
+
+
+
+guess = int(Prompt.ask("[yellow] Sirli sonni toping: "))
+
+result = check_guess(secret_number, guess)
+print_result(result)
